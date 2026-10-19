@@ -1,13 +1,71 @@
-// Ember & Olive: Application Request Listener & Middleware Pipeline
-// Provides an Express-compatible (req, res) handler and native Node.js HTTP listener
-
 import type { IncomingMessage, ServerResponse } from 'node:http';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 import { URL } from 'node:url';
 import type { HttpRequestContext } from './types.ts';
 import { applyCorsHeaders, isPreflight } from './middleware/cors.ts';
 import { parseJsonBody } from './middleware/json.ts';
 import { handleServerError } from './middleware/errorHandler.ts';
 import { routeRequest } from './router.ts';
+
+const MIME_TYPES: Record<string, string> = {
+  '.html': 'text/html; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
+  '.js': 'application/javascript; charset=utf-8',
+  '.json': 'application/json; charset=utf-8',
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.svg': 'image/svg+xml',
+  '.ico': 'image/x-icon',
+  '.webp': 'image/webp',
+  '.woff': 'font/woff',
+  '.woff2': 'font/woff2',
+};
+
+function tryServeStatic(pathname: string, res: ServerResponse): boolean {
+  const searchDirs = [
+    path.resolve(process.cwd(), 'dist'),
+    path.resolve(process.cwd(), 'public'),
+    path.resolve(process.cwd(), '../frontend/dist'),
+    path.resolve(process.cwd(), '../frontend/public'),
+  ];
+
+  for (const root of searchDirs) {
+    if (!fs.existsSync(root)) continue;
+
+    let targetFile = path.resolve(root, pathname === '/' ? 'index.html' : pathname.replace(/^\//, ''));
+    if (!targetFile.startsWith(root)) continue; // prevent path traversal
+
+    if (fs.existsSync(targetFile) && fs.statSync(targetFile).isDirectory()) {
+      targetFile = path.join(targetFile, 'index.html');
+    }
+
+    if (!fs.existsSync(targetFile)) {
+      // Fallback for SPA routing
+      const indexHtml = path.join(root, 'index.html');
+      if (fs.existsSync(indexHtml)) {
+        targetFile = indexHtml;
+      }
+    }
+
+    if (fs.existsSync(targetFile) && fs.statSync(targetFile).isFile()) {
+      const ext = path.extname(targetFile).toLowerCase();
+      const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+      const content = fs.readFileSync(targetFile);
+
+      res.writeHead(200, {
+        'Content-Type': contentType,
+        'Content-Length': content.length.toString(),
+        'Access-Control-Allow-Origin': '*',
+      });
+      res.end(content);
+      return true;
+    }
+  }
+
+  return false;
+}
 
 export async function app(req: IncomingMessage, res: ServerResponse): Promise<void> {
   const method = (req.method || 'GET').toUpperCase();
@@ -60,6 +118,13 @@ export async function app(req: IncomingMessage, res: ServerResponse): Promise<vo
   parsedUrl.searchParams.forEach((val, key) => {
     queryParams[key] = val;
   });
+
+  // If not an API route and static file found, serve static asset
+  if (!parsedUrl.pathname.startsWith('/api') && method === 'GET') {
+    if (tryServeStatic(parsedUrl.pathname, res)) {
+      return;
+    }
+  }
 
   const ctx: HttpRequestContext = {
     method,
