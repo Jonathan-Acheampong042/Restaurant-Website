@@ -17,7 +17,14 @@ import {
   mockReservationsStore,
 } from './mockData.ts';
 
-const API_BASE_URL = typeof window !== 'undefined' ? '' : (process.env.API_URL || 'http://localhost:3001');
+// Browser-safe base URL without relying on undeclared Node global types
+const API_BASE_URL =
+  typeof window !== 'undefined'
+    ? ''
+    : typeof globalThis !== 'undefined' &&
+      (globalThis as unknown as { process?: { env?: Record<string, string> } }).process?.env?.API_URL
+    ? (globalThis as unknown as { process?: { env?: Record<string, string> } }).process!.env!.API_URL!
+    : 'http://localhost:3001';
 
 export interface MenuData {
   categories: MenuCategory[];

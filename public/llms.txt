@@ -1,0 +1,13 @@
+# Ember & Olive
+> Wood-Fired Mediterranean Cuisine & Seasonal Cellar in Downtown Seattle.
+
+- Location: 418 Olive Way, Seattle, WA 98101
+- Telephone: (206) 555-0194
+- Email: hospitality@emberandolive.com
+- Service Hours:
+  - Lunch: Tuesday - Sunday, 12:00 PM - 2:30 PM
+  - Dinner: Tuesday - Sunday, 5:00 PM - 10:00 PM
+  - Mondays: Closed for hearth maintenance & foraging
+- Cuisine: Wood-fired Mediterranean, seasonal Pacific Northwest ingredients, biodynamic and low-intervention natural wines.
+- Dietary Options: Gluten-Free (GF), Vegetarian (V), Vegan (VG), Dairy-Free (DF), Nut-Conscious (N).
+- Reservations: Available online up to 90 days in advance; phone inquiries required for parties of 8+.
