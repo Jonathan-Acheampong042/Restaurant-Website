@@ -2,6 +2,8 @@
   "role": "backend",
   "status": "complete",
   "branch": "feat/ember-olive-backend",
+  "prNumber": 2,
+  "prUrl": "https://github.com/Jonathan-Acheampong042/Restaurant-Website/pull/2",
   "project": "restaurant-website",
   "task": "ember-olive",
   "timestamp": "2026-10-19T16:36:00Z",
