@@ -1,0 +1,52 @@
+{
+  "role": "database",
+  "status": "completed",
+  "branch": "feat/ember-olive-database",
+  "summary": "Completed SQLite database schema, migrations, seed data, and TypeScript access layer for Ember & Olive per .team/CONTRACTS.md.",
+  "contracts": {
+    "engine": "SQLite",
+    "defaultPath": "data/restaurant.db",
+    "tables": [
+      "schema_migrations",
+      "menu_categories",
+      "menu_items",
+      "reservations",
+      "restaurant_info"
+    ]
+  },
+  "deliverables": [
+    "migrations/001_initial_schema.sql",
+    "migrations/002_seed_data.sql",
+    "db/schema.sql",
+    "db/seed.sql",
+    "db/index.ts",
+    "src/db/types.ts",
+    "src/db/connection.ts",
+    "src/db/migrate.ts",
+    "src/db/seed.ts",
+    "src/db/menu.ts",
+    "src/db/reservations.ts",
+    "src/db/restaurant.ts",
+    "src/db/index.ts",
+    "src/db/cli.ts",
+    "src/db/tests/migration.test.ts",
+    "src/db/tests/menu.test.ts",
+    "src/db/tests/reservations.test.ts",
+    "src/db/tests/restaurant.test.ts",
+    "src/db/tests/persistence.test.ts"
+  ],
+  "tests": {
+    "runner": "node --test",
+    "suites": 5,
+    "passed": 5,
+    "failed": 0,
+    "results": [
+      "✔ Menu Repository: category and item operations",
+      "✔ Database Migrations: clean run and idempotency",
+      "✔ File Persistence: data survives full connection close and restart",
+      "✔ Reservations Repository: CRUD, filters, and constraint validations",
+      "✔ Restaurant Info Repository: query and update"
+    ]
+  },
+  "scratchpad": "All database assets and tests implemented and verified. Ready for commit, PR, and lead merge."
+}
