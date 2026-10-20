@@ -7,11 +7,16 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "server": "node --experimental-strip-types src/server/index.ts",
     "typecheck": "tsc --noEmit",
+    "db:migrate": "node --experimental-strip-types src/db/cli.ts migrate",
+    "db:seed": "node --experimental-strip-types src/db/cli.ts seed",
+    "db:init": "node --experimental-strip-types src/db/cli.ts init",
     "test:frontend": "node --experimental-strip-types --test tests/frontend.test.ts",
     "test:backend": "node --experimental-strip-types tests/backend/run-tests.ts",
     "test:db": "node --experimental-strip-types --test src/db/tests/menu.test.ts src/db/tests/migrations.test.ts src/db/tests/persistence.test.ts src/db/tests/reservations.test.ts src/db/tests/restaurant-info.test.ts",
     "test:qa": "node --experimental-strip-types --test tests/qa/security-validation.test.ts",
+    "test:e2e": "node tests/qa/playwright-e2e.test.cjs",
     "test": "node --experimental-strip-types tests/backend/run-tests.ts && node --experimental-strip-types --test tests/frontend.test.ts tests/qa/security-validation.test.ts src/db/tests/menu.test.ts src/db/tests/migrations.test.ts src/db/tests/persistence.test.ts src/db/tests/reservations.test.ts src/db/tests/restaurant-info.test.ts"
   },
   "keywords": [
