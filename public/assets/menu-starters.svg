@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="starterBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2B2721"/>
+      <stop offset="100%" stop-color="#191714"/>
+    </linearGradient>
+    <radialGradient id="slateBoard" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#474542"/>
+      <stop offset="80%" stop-color="#2D2B28"/>
+      <stop offset="100%" stop-color="#1E1C19"/>
+    </radialGradient>
+    <linearGradient id="charredOctopus" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#732F23"/>
+      <stop offset="50%" stop-color="#B34B36"/>
+      <stop offset="100%" stop-color="#421B14"/>
+    </linearGradient>
+    <linearGradient id="halloumiGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2E6CE"/>
+      <stop offset="50%" stop-color="#D9A84E"/>
+      <stop offset="100%" stop-color="#8C5C1E"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="400" fill="url(#starterBg)" rx="12"/>
+
+  <!-- Artisan Slate Platter -->
+  <rect x="70" y="55" width="460" height="290" rx="20" fill="url(#slateBoard)" stroke="#5E5B56" stroke-width="2"/>
+
+  <!-- Olive Oil & Herb Pool -->
+  <ellipse cx="210" cy="210" rx="110" ry="75" fill="#5C662B" opacity="0.35"/>
+  <ellipse cx="210" cy="210" rx="90" ry="60" fill="#758237" opacity="0.45"/>
+
+  <!-- Ceramic Dip Ramekin (Tahini / Eggplant Dip) -->
+  <g transform="translate(180, 185)">
+    <ellipse cx="0" cy="0" rx="65" ry="45" fill="#E8E2D5" stroke="#9C9281" stroke-width="3"/>
+    <ellipse cx="0" cy="0" rx="55" ry="38" fill="#C7BBA5"/>
+    <!-- Swirl of oil & pomegranate -->
+    <path d="M -25 -5 Q 0 20 25 5" stroke="#758237" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <circle cx="-12" cy="8" r="3" fill="#8A1C14"/>
+    <circle cx="8" cy="-8" r="3.5" fill="#8A1C14"/>
+    <circle cx="16" cy="12" r="3" fill="#8A1C14"/>
+    <circle cx="-5" cy="-14" r="2.5" fill="#8A1C14"/>
+  </g>
+
+  <!-- Grilled Halloumi Slices -->
+  <g transform="translate(370, 150) rotate(-10)">
+    <rect x="-40" y="-25" width="80" height="50" rx="6" fill="url(#halloumiGold)" stroke="#6E4411" stroke-width="1.5"/>
+    <!-- Grill marks -->
+    <line x1="-30" y1="-20" x2="-20" y2="20" stroke="#3D2005" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="-10" y1="-20" x2="0" y2="20" stroke="#3D2005" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="10" y1="-20" x2="20" y2="20" stroke="#3D2005" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(410, 200) rotate(15)">
+    <rect x="-40" y="-25" width="80" height="50" rx="6" fill="url(#halloumiGold)" stroke="#6E4411" stroke-width="1.5"/>
+    <line x1="-30" y1="-20" x2="-20" y2="20" stroke="#3D2005" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="-10" y1="-20" x2="0" y2="20" stroke="#3D2005" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="10" y1="-20" x2="20" y2="20" stroke="#3D2005" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Charred Octopus Tentacle Accent -->
+  <path d="M 270 270 Q 320 230 380 260 Q 430 285 450 250" fill="none" stroke="url(#charredOctopus)" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="310" cy="245" r="3" fill="#E8C3B9"/>
+  <circle cx="340" cy="248" r="3" fill="#E8C3B9"/>
+  <circle cx="370" cy="260" r="3" fill="#E8C3B9"/>
+  <circle cx="405" cy="272" r="2.5" fill="#E8C3B9"/>
+
+  <!-- Wild Oregano & Sea Salt Sprinkle -->
+  <g fill="#4A5922" opacity="0.8">
+    <ellipse cx="290" cy="180" rx="5" ry="2"/>
+    <ellipse cx="320" cy="160" rx="4" ry="2" transform="rotate(30, 320, 160)"/>
+    <ellipse cx="350" cy="215" rx="5" ry="3" transform="rotate(-20, 350, 215)"/>
+    <ellipse cx="250" cy="240" rx="4" ry="2"/>
+  </g>
+
+  <!-- Title Watermark -->
+  <text x="300" y="325" font-family="'Cinzel', serif, Georgia" font-size="14" fill="#B3A998" letter-spacing="3" text-anchor="middle" opacity="0.7">
+    MEDITERRANEAN MEZZE &amp; HEARTH STARTERS
+  </text>
+</svg>

@@ -49,6 +49,27 @@
       rel="stylesheet"
     />
 
+    <!-- Tailwind CSS Engine for Utility Styles & Responsive Layout -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#3D4D36',
+              accent: '#C85A32',
+              linen: '#FAF8F5',
+            },
+            fontFamily: {
+              serif: ['Playfair Display', 'Georgia', 'serif'],
+              sans: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            }
+          }
+        }
+      }
+    </script>
+
     <!-- Schema.org Restaurant Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {

@@ -24,8 +24,11 @@ export const StorySection: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {/* Pillar 1: The Hearth */}
-          <div className="bg-white p-8 rounded-xl border border-[#E5E0D8] shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 rounded-lg bg-[#FAF8F5] text-[#C85A32] border border-[#E5E0D8] flex items-center justify-center mb-6">
+          <div className="bg-white p-8 rounded-xl border border-[#E5E0D8] shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col justify-between">
+            <div className="mb-4 rounded-lg overflow-hidden border border-[#E5E0D8]">
+              <img src="/assets/hearth-olive-wood.svg" alt="Wood-fired hearth" className="w-full h-36 object-cover" width="600" height="400" loading="lazy" />
+            </div>
+            <div className="w-12 h-12 rounded-lg bg-[#FAF8F5] text-[#C85A32] border border-[#E5E0D8] flex items-center justify-center mb-4">
               <FlameIcon size={24} />
             </div>
             <h3 className="font-serif text-xl font-bold text-[#1A1A18] mb-3">
@@ -38,8 +41,11 @@ export const StorySection: React.FC = () => {
           </div>
 
           {/* Pillar 2: The Coast & Soil */}
-          <div className="bg-white p-8 rounded-xl border border-[#E5E0D8] shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 rounded-lg bg-[#FAF8F5] text-[#3D4D36] border border-[#E5E0D8] flex items-center justify-center mb-6">
+          <div className="bg-white p-8 rounded-xl border border-[#E5E0D8] shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col justify-between">
+            <div className="mb-4 rounded-lg overflow-hidden border border-[#E5E0D8]">
+              <img src="/assets/signature-flatbread.svg" alt="Mediterranean flatbread & olive oil" className="w-full h-36 object-cover" width="600" height="400" loading="lazy" />
+            </div>
+            <div className="w-12 h-12 rounded-lg bg-[#FAF8F5] text-[#3D4D36] border border-[#E5E0D8] flex items-center justify-center mb-4">
               <LeafIcon size={24} />
             </div>
             <h3 className="font-serif text-xl font-bold text-[#1A1A18] mb-3">
@@ -52,8 +58,11 @@ export const StorySection: React.FC = () => {
           </div>
 
           {/* Pillar 3: The Cellar */}
-          <div className="bg-white p-8 rounded-xl border border-[#E5E0D8] shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 rounded-lg bg-[#FAF8F5] text-[#C85A32] border border-[#E5E0D8] flex items-center justify-center mb-6">
+          <div className="bg-white p-8 rounded-xl border border-[#E5E0D8] shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col justify-between">
+            <div className="mb-4 rounded-lg overflow-hidden border border-[#E5E0D8]">
+              <img src="/assets/signature-cellar.svg" alt="Natural & biodynamic wine cellar" className="w-full h-36 object-cover" width="600" height="400" loading="lazy" />
+            </div>
+            <div className="w-12 h-12 rounded-lg bg-[#FAF8F5] text-[#C85A32] border border-[#E5E0D8] flex items-center justify-center mb-4">
               <span className="font-serif text-2xl font-bold text-[#C85A32]">🍷</span>
             </div>
             <h3 className="font-serif text-xl font-bold text-[#1A1A18] mb-3">

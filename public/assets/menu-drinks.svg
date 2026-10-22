@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="drinksBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A211D"/>
+      <stop offset="100%" stop-color="#0E1410"/>
+    </linearGradient>
+    <radialGradient id="cocktailGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#D97A53" stop-opacity="0.4"/>
+      <stop offset="70%" stop-color="#73331A" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#0E1410" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="palomaLiquid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F28E6B"/>
+      <stop offset="60%" stop-color="#D96343"/>
+      <stop offset="100%" stop-color="#8C3119"/>
+    </linearGradient>
+    <linearGradient id="wineLiquid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6B1D2E"/>
+      <stop offset="60%" stop-color="#4A0E1B"/>
+      <stop offset="100%" stop-color="#24040B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="400" fill="url(#drinksBg)" rx="12"/>
+
+  <!-- Radial Glow behind glassware -->
+  <circle cx="250" cy="200" r="150" fill="url(#cocktailGlow)"/>
+
+  <!-- Stemmed Wine Glass (Left) -->
+  <g transform="translate(230, 80)">
+    <!-- Wine Bowl -->
+    <path d="M 10 50 C 10 110, 70 110, 70 50 Z" fill="url(#wineLiquid)" opacity="0.85"/>
+    <path d="M 0 30 C 0 120, 80 120, 80 30 Z" fill="none" stroke="#D9D0C1" stroke-width="1.8" opacity="0.6"/>
+    <!-- Stem -->
+    <line x1="40" y1="120" x2="40" y2="190" stroke="#D9D0C1" stroke-width="2" opacity="0.6"/>
+    <!-- Base -->
+    <ellipse cx="40" cy="190" rx="30" ry="6" fill="#D9D0C1" opacity="0.4" stroke="#D9D0C1" stroke-width="1.5"/>
+  </g>
+
+  <!-- Rocks Cocktail Glass (Right) - Smoked Paloma -->
+  <g transform="translate(330, 130)">
+    <!-- Rocks Glass Body -->
+    <path d="M 10 10 L 25 130 C 25 140, 95 140, 95 130 L 110 10 Z" fill="url(#palomaLiquid)" opacity="0.9"/>
+    <path d="M 5 0 L 20 135 C 20 145, 100 145, 100 135 L 115 0 Z" fill="none" stroke="#E5DEC9" stroke-width="2" opacity="0.75"/>
+    <!-- Clear Artisan Ice Cube -->
+    <rect x="40" y="40" width="45" height="45" rx="6" fill="#FFFFFF" opacity="0.3" stroke="#FFFFFF" stroke-width="1"/>
+    <!-- Charred Grapefruit Wheel -->
+    <ellipse cx="60" cy="20" rx="35" ry="14" fill="#D45B37" stroke="#7A240A" stroke-width="1.5"/>
+    <ellipse cx="60" cy="20" rx="28" ry="10" fill="#E88261"/>
+    <!-- Smoked Rosemary Sprig -->
+    <path d="M 70 60 L 95 -15" stroke="#3D4D29" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="85" y1="20" x2="100" y2="15" stroke="#3D4D29" stroke-width="1.5"/>
+    <line x1="88" y1="5" x2="105" y2="0" stroke="#3D4D29" stroke-width="1.5"/>
+    <line x1="92" y1="-10" x2="108" y2="-18" stroke="#3D4D29" stroke-width="1.5"/>
+  </g>
+
+  <!-- Label Watermark -->
+  <text x="300" y="325" font-family="'Cinzel', serif, Georgia" font-size="14" fill="#A8BFA8" letter-spacing="3" text-anchor="middle" opacity="0.8">
+    BIODYNAMIC CELLAR &amp; SMOKED COCKTAILS
+  </text>
+</svg>

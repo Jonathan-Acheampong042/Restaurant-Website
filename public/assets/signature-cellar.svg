@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cellarBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1F161A"/>
+      <stop offset="100%" stop-color="#120E10"/>
+    </linearGradient>
+    <linearGradient id="wineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#721C2F"/>
+      <stop offset="50%" stop-color="#4A101D"/>
+      <stop offset="100%" stop-color="#2D0811"/>
+    </linearGradient>
+    <linearGradient id="barrelWood" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4E3629"/>
+      <stop offset="50%" stop-color="#342217"/>
+      <stop offset="100%" stop-color="#20140D"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="400" fill="url(#cellarBg)" rx="12"/>
+
+  <!-- Oak Barrel Silhouette -->
+  <path d="M 80 120 C 140 100, 260 100, 320 120 L 330 310 C 260 330, 140 330, 70 310 Z" fill="url(#barrelWood)" stroke="#170F0A" stroke-width="2"/>
+  <!-- Iron Hoops -->
+  <path d="M 77 150 C 140 135, 260 135, 323 150" stroke="#1F1C1B" stroke-width="5" fill="none"/>
+  <path d="M 72 280 C 140 295, 260 295, 328 280" stroke="#1F1C1B" stroke-width="5" fill="none"/>
+
+  <!-- Biodynamic Wine Bottle -->
+  <g transform="translate(360, 110)">
+    <!-- Bottle Shape -->
+    <path d="M 30 50 L 30 15 C 30 10, 40 10, 40 15 L 40 50 C 55 65, 65 90, 65 140 L 65 240 C 65 245, 5 245, 5 240 L 5 140 C 5 90, 15 65, 30 50 Z" fill="#1C2E1E" stroke="#0D170E" stroke-width="2"/>
+    <!-- Wax Capsule -->
+    <path d="M 28 10 L 42 10 L 42 35 L 28 35 Z" fill="#C85A32"/>
+    <!-- Minimalist Parchment Label -->
+    <rect x="14" y="110" width="42" height="70" rx="3" fill="#F4EFE6" stroke="#D5CBB9" stroke-width="1"/>
+    <line x1="20" y1="125" x2="50" y2="125" stroke="#3D4D36" stroke-width="1.5"/>
+    <line x1="22" y1="135" x2="48" y2="135" stroke="#66645E" stroke-width="1"/>
+    <line x1="24" y1="143" x2="46" y2="143" stroke="#66645E" stroke-width="1"/>
+    <line x1="26" y1="155" x2="44" y2="155" stroke="#C85A32" stroke-width="1"/>
+  </g>
+
+  <!-- Wine Glass with Natural Wine -->
+  <g transform="translate(450, 170)">
+    <!-- Glass Bowl -->
+    <path d="M 10 20 C 10 90, 60 90, 60 20 Z" fill="none" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="2"/>
+    <!-- Liquid -->
+    <path d="M 12 40 C 15 80, 55 80, 58 40 Z" fill="url(#wineGrad)" opacity="0.9"/>
+    <!-- Stem and Base -->
+    <line x1="35" y1="90" x2="35" y2="150" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="2"/>
+    <ellipse cx="35" cy="150" rx="25" ry="5" fill="none" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="2"/>
+  </g>
+
+  <!-- Section Title Overlay -->
+  <rect x="30" y="30" width="270" height="34" rx="6" fill="#120E10" fill-opacity="0.85" stroke="#721C2F" stroke-width="1"/>
+  <text x="45" y="52" font-family="'Cinzel', serif, Georgia" font-size="13" font-weight="600" fill="#FAF8F5" letter-spacing="1">BIODYNAMIC CELLAR PROGRAM</text>
+</svg>
+

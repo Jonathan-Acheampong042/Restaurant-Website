@@ -1,0 +1,269 @@
+# QA Checklist
+
+<!-- Platform-generated context artifact. Facet: quality. → Populated from the operator's project overview at task start. -->
+
+## Requirements & scope
+
+- [ ] # Software Requirements Specification (SRS)  ## Ember & Olive — Restaurant Website & Reservation Platform  ### 1.
+- [ ] Purpose  Build a production-ready restaurant website for **Ember & Olive**, a modern Mediterranean restaurant focused on seasonal ingredients, premium dining, and a polished digital experience.
+- [ ] The application must provide a complete customer-facing experience for discovering the restaurant, exploring the menu, making reservations, and accessing essential restaurant information.
+- [ ] The implementation must be maintainable, responsive, accessible, testable, and suitable for deployment.
+- [ ] ---  ## 2.
+- [ ] Product Objectives  The finished product must:  * Present a polished, premium restaurant brand.
+- [ ] * Work well on mobile, tablet, and desktop.
+- [ ] * Allow customers to browse the restaurant menu.
+- [ ] * Allow customers to submit reservation requests.
+- [ ] * Persist reservation data reliably.
+- [ ] * Validate and handle invalid reservation input.
+- [ ] * Provide clear restaurant information, including hours, location, and contact details.
+- [ ] * Provide an accessible user experience.
+- [ ] * Include appropriate error, loading, and empty states.
+- [ ] * Be structured for production deployment.
+- [ ] * Include automated validation and testing.
+- [ ] * Provide documentation sufficient for another developer to run and maintain the project.
+- [ ] ---  ## 3.
+- [ ] Target Users  ### Customers  Customers should be able to:  * Discover the restaurant.
+- [ ] * Understand its cuisine and positioning.
+- [ ] * Browse the menu.
+- [ ] * View restaurant hours and location.
+- [ ] * Make a reservation.
+- [ ] * Receive clear confirmation or error feedback.
+- [ ] * Use the site comfortably from mobile devices.
+- [ ] ### Restaurant Staff  Staff-oriented functionality should support reliable reservation data and make the system structured enough to extend later into an operational reservation-management workflow.
+- [ ] ### Developers / Operators  A developer should be able to:  * Install the project from a clean checkout.
+- [ ] * Configure required environment variables.
+- [ ] * Initialize any required data layer.
+- [ ] * Run the application locally.
+- [ ] * Run tests and validation.
+- [ ] * Produce a production build.
+- [ ] * Understand the architecture and deployment requirements from the documentation.
+- [ ] ---  ## 4.
+- [ ] Core Functional Requirements  ### 4.1 Home Experience  Provide a strong landing experience containing:  * Restaurant name and brand identity.
+- [ ] * Short restaurant introduction.
+- [ ] * Primary call-to-action for reservations.
+- [ ] * Secondary path to explore the menu.
+- [ ] * High-quality visual hierarchy.
+- [ ] * Clear navigation.
+- [ ] * Responsive layout.
+- [ ] The first viewport should immediately communicate what Ember & Olive is and why a customer should visit.
+- [ ] ---  ### 4.2 Menu  Provide a dedicated menu experience.
+- [ ] Menu functionality must support:  * Categories.
+- [ ] * Individual menu items.
+- [ ] * Item names.
+- [ ] * Descriptions.
+- [ ] * Prices.
+- [ ] * Optional dietary indicators.
+- [ ] * Sensible empty/loading states.
+- [ ] The design must allow additional menu items and categories to be added without redesigning the interface.
+- [ ] Menu data should be represented in an appropriate structured data model rather than hardcoded repeatedly throughout UI components.
+- [ ] ---  ### 4.3 Reservations  Customers must be able to submit a reservation request.
+- [ ] Reservation data should include, as appropriate:  * Customer name.
+- [ ] * Email.
+- [ ] * Phone.
+- [ ] * Reservation date.
+- [ ] * Reservation time.
+- [ ] * Party size.
+- [ ] * Optional special request.
+- [ ] The system must:  * Validate required fields.
+- [ ] * Reject invalid data.
+- [ ] * Provide useful validation messages.
+- [ ] * Prevent obviously invalid reservation dates/times.
+- [ ] * Persist accepted reservation requests.
+- [ ] * Return a clear success state.
+- [ ] * Return a clear failure state if persistence or server processing fails.
+- [ ] Do not store reservation data only in browser memory.
+- [ ] ---  ### 4.4 Restaurant Information  Provide a clearly accessible information section containing:  * Opening hours.
+- [ ] * Address/location.
+- [ ] * Contact information.
+- [ ] * Restaurant description.
+- [ ] * Reservation call-to-action.
+- [ ] The information should be easy to find from navigation and on mobile.
+- [ ] ---  ### 4.5 Responsive Experience  The application must support:  * Mobile layouts.
+- [ ] * Tablet layouts.
+- [ ] * Desktop layouts.
+- [ ] Responsive behavior must account for:  * Navigation.
+- [ ] * Menu browsing.
+- [ ] * Reservation forms.
+- [ ] * Buttons and interactive elements.
+- [ ] * Typography.
+- [ ] * Images/media.
+- [ ] * Spacing and content hierarchy.
+- [ ] Avoid layouts that depend on a single fixed viewport size.
+- [ ] ---  ## 5.
+- [ ] Accessibility Requirements  The application must follow practical accessibility standards.
+- [ ] At minimum:  * Semantic HTML should be used where appropriate.
+- [ ] * Interactive controls must be keyboard accessible.
+- [ ] * Forms must have associated labels.
+- [ ] * Focus states must be visible.
+- [ ] * Color should not be the only means of conveying meaning.
+- [ ] * Images should have meaningful alternative text where applicable.
+- [ ] * Error messages should be understandable and associated with the relevant control.
+- [ ] * Heading hierarchy should be coherent.
+- [ ] * Navigation should remain usable without a mouse.
+- [ ] Accessibility should be validated as part of the normal QA process rather than treated as documentation-only guidance.
+- [ ] ---  ## 6.
+- [ ] Application Architecture  Use a sensible full-stack architecture appropriate for the existing repository.
+- [ ] The system should provide:  ### Frontend  A polished client experience for:  * Home page.
+- [ ] * Reservation form.
+- [ ] * Restaurant information.
+- [ ] * Success/error states.
+- [ ] ### Backend  Provide appropriate server-side functionality for:  * Reservation submission.
+- [ ] * Validation.
+- [ ] * Persistence access.
+- [ ] * Error handling.
+- [ ] ### Data Layer  Provide persistent storage for at least:  * Menu categories.
+- [ ] * Menu items.
+- [ ] * Reservations.
+- [ ] * Restaurant hours/information where appropriate.
+- [ ] The schema should support future growth without requiring structural rewrites for basic expansion.
+- [ ] ---  ## 7.
+- [ ] Data Integrity  Reservation persistence must be reliable.
+- [ ] The implementation should address:  * Required fields.
+- [ ] * Data types.
+- [ ] * Invalid values.
+- [ ] * Server-side validation.
+- [ ] * Consistent error handling.
+- [ ] * Appropriate unique/index constraints where needed.
+- [ ] * Safe database initialization/migration behavior.
+- [ ] A clean checkout must be capable of initializing the data layer reproducibly.
+- [ ] ---  ## 8.
+- [ ] Error Handling  The application must handle failures gracefully.
+- [ ] Include appropriate behavior for:  * Invalid form submissions.
+- [ ] * Failed reservation requests.
+- [ ] * Missing data.
+- [ ] * Empty menu states.
+- [ ] * Backend failures.
+- [ ] * Database/persistence failures.
+- [ ] * Unexpected client-side errors.
+- [ ] The UI must not silently fail or leave the user believing a reservation succeeded when it did not.
+- [ ] ---  ## 9.
+- [ ] Testing Requirements  Provide meaningful automated tests covering important functionality.
+- [ ] At minimum, test:  * Reservation validation.
+- [ ] * Reservation persistence.
+- [ ] * Important backend behavior.
+- [ ] * Critical frontend behavior.
+- [ ] * Important user-facing flows where practical.
+- [ ] Tests must use the project's real implementation rather than mock away the behavior being verified.
+- [ ] ---  ## 10.
+- [ ] Quality Validation  A clean development workflow must be possible from a fresh checkout.
+- [ ] The project should support the appropriate sequence for the repository's actual technology stack, including where applicable:  1.
+- [ ] Install dependencies.
+- [ ] Generate required client/database artifacts.
+- [ ] Apply database migrations or initialization.
+- [ ] Seed required development data.
+- [ ] Run tests.
+- [ ] Run type checking.
+- [ ] Run linting.
+- [ ] Run a development/preview server.
+- [ ] Produce a production build.
+- [ ] Validate the rendered application.
+- [ ] Only commands actually supported by the project's configuration should be required.
+- [ ] ---  ## 11.
+- [ ] Browser / Rendered UI Requirements  The final application must be checked as a real rendered application.
+- [ ] Validation should confirm:  * The application loads successfully.
+- [ ] * The initial page is not blank.
+- [ ] * Navigation works.
+- [ ] * Menu content renders.
+- [ ] * Reservation UI renders.
+- [ ] * Reservation submission flow works.
+- [ ] * There are no unhandled browser errors.
+- [ ] * Critical resources load correctly.
+- [ ] * Styling is actually applied.
+- [ ] * Responsive behavior is reasonable.
+- [ ] A successful TypeScript compilation alone is not sufficient evidence that the website works.
+- [ ] ---  ## 12.
+- [ ] Visual / UX Requirements  The design should feel like a real premium restaurant site rather than a generic CRUD application.
+- [ ] The experience should include:  * Strong visual hierarchy.
+- [ ] * Consistent spacing.
+- [ ] * Thoughtful typography.
+- [ ] * Clear call-to-action hierarchy.
+- [ ] * Appropriate imagery or visual treatment.
+- [ ] * Tasteful animation/transitions where useful.
+- [ ] * Clear feedback during form submission.
+- [ ] * Strong mobile experience.
+- [ ] Avoid unnecessary visual complexity that harms usability or performance.
+- [ ] ---  ## 13.
+- [ ] Security and Operational Requirements  The implementation should:  * Keep secrets out of source control.
+- [ ] * Validate server-side input.
+- [ ] * Avoid exposing database credentials to the browser.
+- [ ] * Use environment configuration for deployment-specific secrets.
+- [ ] * Avoid unnecessary privileges.
+- [ ] * Handle errors without exposing sensitive internal information.
+- [ ] ---  ## 14.
+- [ ] Deployment Readiness  Provide:  * Production build configuration.
+- [ ] * Environment variable documentation.
+- [ ] * Database setup instructions.
+- [ ] * Local development instructions.
+- [ ] * Deployment instructions.
+- [ ] * Reasonable production configuration.
+- [ ] * Explanation of any assumptions or external services required.
+- [ ] A fresh developer should be able to understand what is required to move the project from local development to deployment.
+- [ ] ---  ## 15.
+- [ ] Documentation  Document:  * Project purpose.
+- [ ] * Architecture overview.
+- [ ] * Local setup.
+- [ ] * Environment variables.
+- [ ] * Data initialization.
+- [ ] * Development commands.
+- [ ] * Testing commands.
+- [ ] * Production build.
+- [ ] * Deployment considerations.
+- [ ] * Important architectural decisions.
+- [ ] Documentation should reflect the implementation that actually exists.
+- [ ] ---  ## 16.
+- [ ] Definition of Done  The project is complete only when:  * The customer-facing site works.
+- [ ] * Menu functionality works.
+- [ ] * Reservation submission works.
+- [ ] * Reservation data persists.
+- [ ] * Validation works.
+- [ ] * Accessibility requirements are addressed.
+- [ ] * Responsive layouts work.
+- [ ] * Automated tests pass.
+- [ ] * Type checking passes.
+- [ ] * Linting passes where configured.
+- [ ] * Production build succeeds.
+- [ ] * The rendered application has been inspected.
+- [ ] * Critical browser/runtime errors are absent.
+- [ ] * Documentation matches the actual project.
+- [ ] * The project can be reproduced from a clean checkout.
+- [ ] ---  ## 17.
+- [ ] Acceptance Scenarios  ### Scenario A — New Visitor  A new visitor opens the website on a phone.
+- [ ] Expected:  * The page loads correctly.
+- [ ] * Restaurant identity is immediately clear.
+- [ ] * Navigation is usable.
+- [ ] * Main reservation CTA is obvious.
+- [ ] * Menu can be reached easily.
+- [ ] ### Scenario B — Browse Menu  A visitor opens the menu.
+- [ ] Expected:  * Menu categories are visible.
+- [ ] * Items display correctly.
+- [ ] * Prices/descriptions are readable.
+- [ ] * The interface remains usable on mobile.
+- [ ] ### Scenario C — Make Reservation  A visitor submits a valid reservation.
+- [ ] Expected:  * Input is validated.
+- [ ] * Request reaches the server.
+- [ ] * Reservation persists.
+- [ ] * User receives confirmation.
+- [ ] ### Scenario D — Invalid Reservation  A visitor submits incomplete or invalid data.
+- [ ] Expected:  * Invalid values are detected.
+- [ ] * Clear feedback is shown.
+- [ ] * No invalid reservation is persisted.
+- [ ] ### Scenario E — Persistence Verification  A reservation is created and the application/server is restarted.
+- [ ] Expected:  * The reservation remains stored.
+- [ ] * The persistence layer behaves consistently.
+- [ ] ### Scenario F — Production Validation  A fresh checkout is initialized and built.
+- [ ] Expected:  * Required dependencies install.
+- [ ] * Data layer initializes correctly.
+- [ ] * Tests/type checks/linting complete successfully where configured.
+- [ ] * Production build succeeds.
+- [ ] * The resulting application renders correctly in a browser.
+- [ ] ---  ## 18.
+- [ ] Success Criteria  The final result should look and behave like a professionally developed restaurant platform, not merely a demonstration.
+- [ ] The implementation should be:  * Functional.
+- [ ] * Maintainable.
+- [ ] * Responsive.
+- [ ] * Accessible.
+- [ ] * Tested.
+- [ ] * Persistent.
+- [ ] * Documented.
+- [ ] * Deployment-ready.
+- [ ] The implementation team is responsible for determining the appropriate technical decomposition and execution strategy needed to satisfy these requirements.

@@ -56,7 +56,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onReserveClick }) => {
   ];
 
   return (
-    <header
+    <>
+      <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'bg-[#FAF8F5]/95 backdrop-blur-md shadow-md border-b border-[#E5E0D8]/80 py-3'
@@ -134,48 +135,49 @@ export const Navbar: React.FC<NavbarProps> = ({ onReserveClick }) => {
           </div>
         </div>
       </div>
+    </header>
 
-      {/* Mobile Drawer Backdrop & Menu */}
-      {isMobileMenuOpen && (
-        <div
-          id="mobile-navigation-drawer"
-          ref={mobileDrawerRef}
-          className="fixed inset-0 top-[65px] bg-[#FAF8F5] z-40 md:hidden flex flex-col px-6 py-8 border-t border-[#E5E0D8] shadow-2xl animate-fade-in overflow-y-auto"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Mobile Navigation"
-        >
-          <nav className="flex flex-col gap-6 text-lg" aria-label="Mobile Menu">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={closeMobileMenu}
-                className="font-serif text-2xl font-semibold text-[#1A1A18] hover:text-[#C85A32] py-2 border-b border-[#E5E0D8]/60 transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-
-          <div className="mt-8 pt-6 border-t border-[#E5E0D8] flex flex-col gap-4">
-            <button
-              type="button"
-              onClick={() => {
-                closeMobileMenu();
-                onReserveClick();
-              }}
-              className="btn btn-primary w-full text-base py-3.5"
+    {/* Mobile Drawer Backdrop & Menu (Outside header to prevent containing block collapse) */}
+    {isMobileMenuOpen && (
+      <div
+        id="mobile-navigation-drawer"
+        ref={mobileDrawerRef}
+        className="fixed inset-0 top-[72px] bg-[#FAF8F5] z-50 md:hidden flex flex-col px-6 py-8 border-t border-[#E5E0D8] shadow-2xl animate-fade-in overflow-y-auto"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Mobile Navigation"
+      >
+        <nav className="flex flex-col gap-6 text-lg" aria-label="Mobile Menu">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={closeMobileMenu}
+              className="font-serif text-2xl font-semibold text-[#1A1A18] hover:text-[#C85A32] py-2 border-b border-[#E5E0D8]/60 transition-colors"
             >
-              Reserve a Table
-            </button>
-            <div className="text-center text-xs text-[#66645E] mt-4">
-              <p>418 Olive Way, Seattle, WA 98101</p>
-              <p className="mt-1">(206) 555-0194</p>
-            </div>
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        <div className="mt-8 pt-6 border-t border-[#E5E0D8] flex flex-col gap-4">
+          <button
+            type="button"
+            onClick={() => {
+              closeMobileMenu();
+              onReserveClick();
+            }}
+            className="btn btn-primary w-full text-base py-3.5"
+          >
+            Reserve a Table
+          </button>
+          <div className="text-center text-xs text-[#66645E] mt-4">
+            <p>418 Olive Way, Seattle, WA 98101</p>
+            <p className="mt-1">(206) 555-0194</p>
           </div>
         </div>
-      )}
-    </header>
-  );
+      </div>
+    )}
+  </>
+);
 };

@@ -1,11 +1,47 @@
 const { chromium } = require('C:/Users/jacheampong042/Master-Vibe-Coding-Command-Center/vibe-command-center/node_modules/playwright');
 const path = require('node:path');
 const fs = require('node:fs');
+const { spawn } = require('node:child_process');
+
+let previewProcess = null;
+
+async function ensureServer() {
+  try {
+    const res = await fetch('http://127.0.0.1:4173');
+    if (res.ok) {
+      console.log('Detected existing server on http://127.0.0.1:4173.\n');
+      return;
+    }
+  } catch {}
+
+  console.log('Spawning internal Vite preview server on http://127.0.0.1:4173...');
+  const repoRoot = path.resolve(__dirname, '../..');
+  const viteBin = path.join(repoRoot, 'node_modules/vite/bin/vite.js');
+
+  previewProcess = spawn('node', [viteBin, 'preview', '--port', '4173', '--host', '127.0.0.1'], {
+    cwd: repoRoot,
+    stdio: 'ignore'
+  });
+
+  for (let i = 0; i < 30; i++) {
+    await new Promise(r => setTimeout(r, 500));
+    try {
+      const res = await fetch('http://127.0.0.1:4173');
+      if (res.ok) {
+        console.log('Internal Vite preview server is ready.\n');
+        return;
+      }
+    } catch {}
+  }
+  throw new Error('Timed out waiting for Vite preview server on http://127.0.0.1:4173');
+}
 
 async function runE2EValidation() {
   console.log('====================================================');
   console.log('  Ember & Olive — Playwright E2E & Visual Audit');
   console.log('====================================================\n');
+
+  await ensureServer();
 
   const screenshotsDir = path.resolve(process.cwd(), 'playwright-artifacts');
   if (!fs.existsSync(screenshotsDir)) {
@@ -166,6 +202,10 @@ async function runE2EValidation() {
   await mobileContext.close();
   await browser.close();
 
+  if (previewProcess) {
+    try { previewProcess.kill(); } catch {}
+  }
+
   console.log('\n====================================================');
   console.log('  PLAYWRIGHT AUDIT COMPLETE: ALL ASSERTIONS PASSED');
   console.log('====================================================');
@@ -180,6 +220,9 @@ async function runE2EValidation() {
 }
 
 runE2EValidation().catch(err => {
+  if (previewProcess) {
+    try { previewProcess.kill(); } catch {}
+  }
   console.error('\nE2E Audit Failed:', err);
   process.exit(1);
 });

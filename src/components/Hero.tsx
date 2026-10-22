@@ -37,78 +37,104 @@ export const Hero: React.FC<HeroProps> = ({ onReserveClick, onMenuClick }) => {
       />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-3xl">
-          {/* Eyebrow Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#FAF8F5] text-xs sm:text-sm font-medium tracking-wide uppercase mb-6">
-            <span className="text-[#C85A32]">
-              <FlameIcon size={16} />
-            </span>
-            <span>Wood-Fired Hearth & Seasonal Cellar</span>
-          </div>
-
-          {/* Main Title */}
-          <h1
-            id="hero-title"
-            className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#FAF8F5] mb-6 leading-tight"
-          >
-            Ember & Olive
-          </h1>
-
-          {/* Subtitle / Intro Narrative */}
-          <p className="text-lg sm:text-xl text-[#FAF8F5]/85 leading-relaxed font-light mb-10 max-w-2xl">
-            Where the raw coastal harvest of the Pacific Northwest meets the ancient,
-            elemental warmth of the Mediterranean hearth. Seasoned olive wood embers,
-            handcrafted coastal dishes, and low-intervention biodynamic wines.
-          </p>
-
-          {/* Primary Action Buttons */}
-          <div className="flex flex-wrap items-center gap-4 mb-14">
-            <button
-              type="button"
-              onClick={onReserveClick}
-              className="btn btn-primary text-base px-8 py-3.5 shadow-lg hover:shadow-xl focus-visible:ring-offset-[#3D4D36]"
-            >
-              <CalendarIcon size={18} />
-              <span>Reserve a Table</span>
-            </button>
-            <button
-              type="button"
-              onClick={onMenuClick}
-              className="btn btn-outline-white text-base px-8 py-3.5 focus-visible:ring-offset-[#3D4D36]"
-            >
-              <span>Explore Menu</span>
-            </button>
-          </div>
-
-          {/* Quick Info Strip */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 border-t border-white/20 text-xs sm:text-sm text-[#FAF8F5]/80">
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-full bg-white/10 text-[#C85A32]">
-                <ClockIcon size={18} />
-              </div>
-              <div>
-                <p className="font-semibold text-white">Daily Hours</p>
-                <p className="text-white/70">Lunch 12–2:30 • Dinner 5–10</p>
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Left Column: Editorial & Actions */}
+          <div className="lg:col-span-7">
+            {/* Eyebrow Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#FAF8F5] text-xs sm:text-sm font-medium tracking-wide uppercase mb-6">
+              <span className="text-[#C85A32]">
+                <FlameIcon size={16} />
+              </span>
+              <span>Wood-Fired Hearth &amp; Seasonal Cellar</span>
             </div>
 
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-full bg-white/10 text-[#C85A32]">
-                <MapPinIcon size={18} />
-              </div>
-              <div>
-                <p className="font-semibold text-white">Location</p>
-                <p className="text-white/70">418 Olive Way, Seattle</p>
-              </div>
+            {/* Main Title */}
+            <h1
+              id="hero-title"
+              className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#FAF8F5] mb-6 leading-tight"
+            >
+              Ember &amp; Olive
+            </h1>
+
+            {/* Subtitle / Intro Narrative */}
+            <p className="text-lg sm:text-xl text-[#FAF8F5]/85 leading-relaxed font-light mb-10 max-w-2xl">
+              Where the raw coastal harvest of the Pacific Northwest meets the ancient,
+              elemental warmth of the Mediterranean hearth. Seasoned olive wood embers,
+              handcrafted coastal dishes, and low-intervention biodynamic wines.
+            </p>
+
+            {/* Primary Action Buttons */}
+            <div className="flex flex-wrap items-center gap-4 mb-14">
+              <button
+                type="button"
+                onClick={onReserveClick}
+                className="btn btn-primary text-base px-8 py-3.5 shadow-lg hover:shadow-xl focus-visible:ring-offset-[#3D4D36]"
+              >
+                <CalendarIcon size={18} />
+                <span>Reserve a Table</span>
+              </button>
+              <button
+                type="button"
+                onClick={onMenuClick}
+                className="btn btn-outline-white text-base px-8 py-3.5 focus-visible:ring-offset-[#3D4D36]"
+              >
+                <span>Explore Menu</span>
+              </button>
             </div>
 
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-full bg-white/10 text-[#C85A32]">
-                <FlameIcon size={18} />
+            {/* Quick Info Strip */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 border-t border-white/20 text-xs sm:text-sm text-[#FAF8F5]/80">
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-full bg-white/10 text-[#C85A32]">
+                  <ClockIcon size={18} />
+                </div>
+                <div>
+                  <p className="font-semibold text-white">Daily Hours</p>
+                  <p className="text-white/70">Lunch 12–2:30 • Dinner 5–10</p>
+                </div>
               </div>
-              <div>
-                <p className="font-semibold text-white">Culinary Heart</p>
-                <p className="text-white/70">Live Olive Wood Hearth</p>
+
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-full bg-white/10 text-[#C85A32]">
+                  <MapPinIcon size={18} />
+                </div>
+                <div>
+                  <p className="font-semibold text-white">Location</p>
+                  <p className="text-white/70">418 Olive Way, Seattle</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-full bg-white/10 text-[#C85A32]">
+                  <FlameIcon size={18} />
+                </div>
+                <div>
+                  <p className="font-semibold text-white">Culinary Heart</p>
+                  <p className="text-white/70">Live Olive Wood Hearth</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Visual Hearth Artwork & Craft Frame */}
+          <div className="lg:col-span-5 hidden lg:block">
+            <div className="relative rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl bg-[#2D3A28]/80 backdrop-blur-sm group hover:border-[#C85A32]/60 transition-all duration-300">
+              <img
+                src="/assets/hearth-olive-wood.svg"
+                alt="Ember &amp; Olive custom masonry wood-fired hearth burning seasoned olive wood embers"
+                className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
+                width="800"
+                height="600"
+                loading="eager"
+              />
+              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <span className="text-xs uppercase tracking-widest text-[#E88D5D] font-medium block">Seattle, WA</span>
+                    <p className="font-serif text-lg font-bold">The Custom Masonry Hearth</p>
+                  </div>
+                  <span className="text-xs bg-white/20 px-2.5 py-1 rounded-full font-mono text-[#FAF8F5]">650°F Embers</span>
+                </div>
               </div>
             </div>
           </div>

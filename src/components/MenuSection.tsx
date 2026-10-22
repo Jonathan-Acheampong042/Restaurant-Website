@@ -13,6 +13,28 @@ interface MenuSectionProps {
   onRetry?: () => void;
 }
 
+const ITEM_VISUALS: Record<string, { src: string; alt: string }> = {
+  item_smoked_eggplant: { src: '/assets/menu-starters.svg', alt: 'Smoked Eggplant Dip with pomegranate seeds and sourdough' },
+  item_wood_fired_octopus: { src: '/assets/menu-starters.svg', alt: 'Charred Spanish Octopus with fingerling potatoes' },
+  item_halloumi: { src: '/assets/menu-starters.svg', alt: 'Wood-Fired Halloumi with wildflower honey and sesame' },
+  item_lamb_kofta: { src: '/assets/menu-starters.svg', alt: 'Lamb Kofta Skewers with mint labneh and sumac' },
+  item_branzino: { src: '/assets/signature-black-cod.svg', alt: 'Whole Mediterranean Branzino with charred lemon' },
+  item_ribeye: { src: '/assets/menu-mains.svg', alt: 'Dry-Aged Ribeye seared over olive wood' },
+  item_cauliflower: { src: '/assets/menu-mains.svg', alt: 'Roasted Cauliflower Steak with golden raisin agro dolce' },
+  item_pork_chop: { src: '/assets/menu-mains.svg', alt: 'Heritage Pork Chop with fire-roasted figs' },
+  item_citrus_cake: { src: '/assets/menu-desserts.svg', alt: 'Olive Oil Citrus Cake with candied citrus peel' },
+  item_chocolate_ganache: { src: '/assets/menu-desserts.svg', alt: 'Smoked Chocolate Ganache with sea salt crisps' },
+  item_cretan_wine: { src: '/assets/signature-cellar.svg', alt: 'Cretan Mountain Herbal Wine from natural cellar' },
+  item_rosemary_paloma: { src: '/assets/menu-drinks.svg', alt: 'Smoked Rosemary Paloma with charred citrus' },
+};
+
+const CATEGORY_DEFAULT_VISUALS: Record<string, { src: string; alt: string }> = {
+  starters: { src: '/assets/menu-starters.svg', alt: 'Hearth-fired Mediterranean starter selection' },
+  mains: { src: '/assets/menu-mains.svg', alt: 'Hearth-fired principal main course' },
+  desserts: { src: '/assets/menu-desserts.svg', alt: 'Artisan Mediterranean confectionery and dolci' },
+  drinks: { src: '/assets/menu-drinks.svg', alt: 'Curated biodynamic wine and craft cocktail' },
+};
+
 const DIETARY_LABELS: Record<DietaryTag, { label: string; full: string; className: string }> = {
   V: { label: 'V', full: 'Vegetarian', className: 'badge-dietary-v' },
   VG: { label: 'VG', full: 'Vegan', className: 'badge-dietary-vg' },
@@ -96,6 +118,61 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
             Our menu evolves with the Pacific Northwest seasons and daily fish harvests.
             Each dish is prepared over live olive wood embers.
           </p>
+        </div>
+
+                {/* Chef's Hearth Signatures Visual Showcase */}
+        <div className="mb-14 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="relative rounded-xl overflow-hidden border border-[#E5E0D8] bg-white shadow-sm hover:shadow-md transition-shadow group flex flex-col">
+            <div className="h-48 overflow-hidden relative">
+              <img
+                src="/assets/signature-black-cod.svg"
+                alt="Hearth-Roasted Black Cod"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                width="600"
+                height="400"
+              />
+              <span className="absolute top-3 left-3 bg-[#3D4D36] text-white text-xs font-semibold px-2.5 py-1 rounded shadow">Chef's Signature</span>
+            </div>
+            <div className="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-baseline mb-2">
+                  <h3 className="font-serif text-xl font-bold text-[#1A1A18]">Hearth-Roasted Black Cod</h3>
+                  <span className="font-mono text-[#C85A32] font-semibold text-lg">$42</span>
+                </div>
+                <p className="text-sm text-[#66645E]">Neah Bay black cod seared over olive wood, blistered Meyer lemon, wild oregano &amp; Cretan olive tapenade.</p>
+              </div>
+              <div className="flex gap-2 mt-4">
+                <span className="text-xs bg-[#F4EFE6] text-[#3D4D36] font-medium px-2 py-0.5 rounded">GF</span>
+                <span className="text-xs bg-[#F4EFE6] text-[#3D4D36] font-medium px-2 py-0.5 rounded">DF</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative rounded-xl overflow-hidden border border-[#E5E0D8] bg-white shadow-sm hover:shadow-md transition-shadow group flex flex-col">
+            <div className="h-48 overflow-hidden relative">
+              <img
+                src="/assets/signature-flatbread.svg"
+                alt="Wood-Fired Hearth Flatbread"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                width="600"
+                height="400"
+              />
+              <span className="absolute top-3 left-3 bg-[#C85A32] text-white text-xs font-semibold px-2.5 py-1 rounded shadow">Hearth Essential</span>
+            </div>
+            <div className="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-baseline mb-2">
+                  <h3 className="font-serif text-xl font-bold text-[#1A1A18]">Blistered Hearth Flatbread</h3>
+                  <span className="font-mono text-[#C85A32] font-semibold text-lg">$16</span>
+                </div>
+                <p className="text-sm text-[#66645E]">Fermented ancient grain dough blistered on stone, first-cold-pressed olive oil, flaky sea salt, mountain oregano.</p>
+              </div>
+              <div className="flex gap-2 mt-4">
+                <span className="text-xs bg-[#F4EFE6] text-[#3D4D36] font-medium px-2 py-0.5 rounded">V</span>
+                <span className="text-xs bg-[#F4EFE6] text-[#3D4D36] font-medium px-2 py-0.5 rounded">VG</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Category Navigation Bar (Sticky or Horizontal Scrollable) */}
@@ -239,21 +316,39 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
             {filteredItems.map((item) => (
               <article
                 key={item.id}
-                className="bg-white p-6 sm:p-7 rounded-2xl border border-[#E5E0D8] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+                className="bg-white rounded-2xl border border-[#E5E0D8] shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col justify-between group"
               >
-                <div>
-                  <div className="flex items-start justify-between gap-4 mb-2">
-                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1A1A18] leading-tight">
+                {/* Visual Dish Artwork Frame */}
+                {(() => {
+                  const visual = ITEM_VISUALS[item.id] || CATEGORY_DEFAULT_VISUALS[item.categoryId] || {
+                    src: '/assets/menu-mains.svg',
+                    alt: item.name,
+                  };
+                  return (
+                    <div className="h-44 sm:h-48 overflow-hidden relative bg-[#FAF8F5]">
+                      <img
+                        src={visual.src}
+                        alt={visual.alt}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        width="400"
+                        height="250"
+                      />
+                      <span className="absolute top-3 right-3 font-mono text-xs font-bold text-white bg-[#1A1A18]/85 backdrop-blur-sm px-2.5 py-1 rounded-full shadow-sm">
+                        ${item.price.toFixed(2)}
+                      </span>
+                    </div>
+                  );
+                })()}
+
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1A1A18] leading-tight mb-2">
                       {item.name}
                     </h3>
-                    <span className="font-mono text-lg font-bold text-[#3D4D36] whitespace-nowrap">
-                      ${item.price.toFixed(2)}
-                    </span>
+                    <p className="text-sm text-[#66645E] leading-relaxed mb-4">
+                      {item.description}
+                    </p>
                   </div>
-                  <p className="text-sm text-[#66645E] leading-relaxed mb-4">
-                    {item.description}
-                  </p>
-                </div>
 
                 {/* Dietary Badges */}
                 <div className="flex items-center justify-between pt-3 border-t border-[#E5E0D8]/60 mt-auto">
@@ -278,7 +373,8 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
                     Hearth Prepared
                   </span>
                 </div>
-              </article>
+              </div>
+            </article>
             ))}
           </div>
         )}
